@@ -30,11 +30,12 @@ npm start
 
 CI/CD (GitHub Actions):
 - `test` job: instala dependencias y ejecuta tests.
-- `build-and-push` job: construye imagen Docker y la publica en `ghcr.io/${{ github.repository_owner }}/lab-1-app`.
+- `build-and-push` job: construye imagen Docker y la publica en Docker Hub (`${{ secrets.DOCKERHUB_USERNAME }}/lab-1-app`).
 - `deploy-heroku` job (opcional): despliega a Heroku si configuras los secretos `HEROKU_API_KEY` y `HEROKU_APP_NAME`.
 
 Secrets recomendados para publicar/desplegar:
 - `GITHUB_TOKEN` (ya disponible automáticamente para Actions)
+- `DOCKERHUB_USERNAME` y `DOCKERHUB_TOKEN` — para publicar la imagen en Docker Hub desde Actions.
 - `HEROKU_API_KEY` y `HEROKU_APP_NAME` (si quieres desplegar a Heroku)
 
 Notas de seguridad:
